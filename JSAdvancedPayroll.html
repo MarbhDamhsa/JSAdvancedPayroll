@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JavaScript Advanced Payroll</title>
+<script type="text/javascript">
+var pay = 0;
+//var radiobutton = "";[]
+var radiobutton2 = [document.getElementById('radiobutton1'),document.getElementById('radiobutton2'), document.getElementById('radiobutton3')];
+var calcbtn = document.getElementById('calc');
+if (calcbtn) {
+    calcbtn.addEventListener('click', clickAction());
+}
+
+/*function wageType(radiobutton) {
+    if (payroll.radiobutton[0].checked === true) {
+        emp = "salaried";
+    }
+    if (payroll.radiobutton[1].checked === true);
+    emp = "hourly";
+}*/
+
+function medPlan (radiobutton2) {
+    var pph = document.getElementById("pph").value * 1;
+    var hw = document.getElementById("hw").value * 1;
+
+    if (payroll.radiobutton2[0].checked === true) {
+        if (payroll.radiobutton[0].checked === true) {
+            pay = document.getElementById("Salary").value * 1;
+            pay = (pay - 50);
+            
+            }
+            else {
+        if (payroll.radiobutton[1].checked === true) {
+            pay = pph * hw;
+            pay = (pay - 50);
+            
+            }
+
+      }
+    } else {
+        if (payroll.radiobutton2[1].checked === true) {
+            if (payroll.radiobutton[0].checked === true) {
+                pay.value = document.getElementById("Salary").value * 1;
+                pay = (pay - 35);
+                
+
+                }else{
+            if (payroll.radiobutton[1].checked === true) {
+                pay = pph * hw;
+                pay = (pay - 35);
+                //return pay;
+                        }
+                      }
+                    }
+                  } else {
+        if (payroll.radiobutton2[2].checked === true) {
+                if (payroll.radiobutton[0].checked === true) {
+                    pay.value = document.getElementById("Salary").value * 1;
+                    pay = pay - 25;
+                //return pay;
+                    } else {
+                  
+                if (payroll.radiobutton[1].checked === true) {
+                    pay = pph * hw;
+                    pay = pay - 25;
+                  //return pay;
+                }
+                }
+                
+            }
+   }     
+  //pay = (pay - 50);      
+    
+  document.getElementById('pay').value = pay * 1;
+  return pay;
+}
+
+function clickAction() {
+    medPlan();
+}
+var calcbtn = document.getElementById('calc');
+if (calcbtn) {
+    calcbtn.addEventListener('click', clickAction());
+}
+</script>
+</head>
+<body>
+<h1>Calculate Payroll</h1>
+<p>Check the type of employee:</p>
+<form name = "payroll">
+<p>Enter name:
+<input type = "text" name = "empName" value = ""><br>
+Enter type:<br>
+<input type = "radio" id = "radiobutton" name = "radiobutton" value="Sal"> Salary<br>
+<input type = "radio" id = "radiobutton" name = "radiobutton" value="Hour"> Hourly<br><br><br>
+Pay per hour: <input type = "text" id = "pph" name = "pph" value = "15"> Hours worked: <input type = "text" id = "hw" name="hw" value="27"><br><br>
+Salary: <input type = "text" id = "Salary" name = "Salary" value = ""><br><br><br>
+
+Enter medical plan:<br>
+
+Plan A:<input type = "radio" id = "radiobutton1" name = "radiobutton1" value="1"><br>
+Plan B:<input type = "radio" id = "radiobutton2" name = "radiobutton2" value="2"><br>
+Plan C:<input type = "radio" id = "radiobutton3" name = "radiobutton3" value="3"><br>
+
+<input type = "button" name = "toClick" id = "calc" onClick = "JavaScript: medPlan();" value = "Calculate Your Pay" >
+<input type = "pay" id = "pay" name = "pay" value="0"><br />
+</form>
+</body>
+</html>
